@@ -1,0 +1,239 @@
+openapi: 3.0.3
+info:
+  title: Pagamentos - 1.0
+  description: |-
+    Essa é a documentação da nossa API de pagamentos, um dos micro serviços que vamos criar hoje.
+
+    links:
+    - [Repositório do projeto final](https://github.com/swagger-api/swagger-petstore)
+    - [Guia de implementação](https://docs.google.com/document/d/1cnRGuFmQUW_fVhFNEcyVHDvADyJLFxPacC_sBXlRncc)
+  version: 1.0.0
+
+paths:
+  /pagamentos:
+    get:
+      summary: Lista todos os pagamentos.
+      description: Lista todos os pagamentos cadastrados no banco de forma paginada.
+      operationId: listarPagamentos
+      responses:
+        '200':
+          description: A buscar ocorreu sem nenhum problema e retornou a lista desejada.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/listaDePagamentos'
+    post:
+      summary: Cria um novo pagamento.
+      description: Cria um novo pagamento de acordo com os dados enviados no corpo da requisição.
+      operationId: novoPagamento
+      parameters:
+        - name: valor
+          in: query
+          description: Valor do pagamento.
+          required: true
+          schema:
+            type: number
+        - name: nome
+          in: query
+          description: Nome de quem está pagando.
+          required: true
+          schema:
+            type: string
+        - name: numero
+          in: query
+          description: Número do cartão de crédito.
+          required: true
+          schema:
+            type: string
+        - name: expiracao
+          in: query
+          description: Data de expiração do cartão de crédito.
+          required: true
+          schema:
+            type: string
+        - name: codigo
+          in: query
+          description: Código de segurança do cartão de crédito.
+          required: true
+          schema:
+            type: string
+        - name: status
+          in: query
+          description: Status do pagamento (CRIADO, CONFIRMADO, CANCELADO). Se não for informado, o status padrão será CRIADO.
+          required: false
+          schema:
+            type: string
+        - name: formaDePagamentoId
+          in: query
+          description: ID da forma de pagamento que será utilizada para realizar o pagamento.
+          required: true
+          schema:
+            type: integer
+        - name: pedidoId
+          in: query
+          description: ID do pedido que está sendo pago.
+          required: true
+          schema:
+            type: integer
+      responses:
+        '201':
+          description: O pagamento foi registrado com sucesso pelo serviço!
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pagamento'
+        '400':
+          description: Houve algum erro com os dados enviados para a criação do novo pagamento.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+  /pagamentos/{id}:
+    get:
+      summary: Busca um pagamento pelo seu ID.
+      description: Busca um pagamento pelo seu ID se ele existir no banco de dados.
+      operationId: buscarPagamento
+      parameters:
+        - name: id
+          in: path
+          description: ID do pagamento que será buscado.
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: A busca ocorreu sem nenhum problema e retornou o pagamento desejado.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pagamento'
+        '404':
+          description: O pagamento com o ID informado não foi encontrado.
+
+components:
+  schemas:
+    Pagamento:
+      type: object
+      properties:
+        id:
+          type: integer
+        valor:
+          type: number
+        nome:
+          type: string
+        numero:
+          type: string
+        expiracao:
+          type: string
+        codigo:
+          type: string
+        status:
+          type: string
+        formaDePagamentoId:
+          type: integer
+        pedidoId:
+          type: integer
+      required:
+        - id
+        - valor
+        - nome
+        - numero
+        - expiracao
+        - codigo
+        - status
+        - formaDePagamentoId
+        - pedidoId
+    listaDePagamentos:
+      type: object
+      properties:
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/Pagamento'
+        pageable:
+          type: object
+          properties:
+            sort:
+              type: object
+              properties:
+                empty:
+                  type: boolean
+                sorted:
+                  type: boolean
+                unsorted:
+                  type: boolean
+            offset:
+              type: integer
+            pageSize:
+              type: integer
+            pageNumber:
+              type: integer
+            unpaged:
+              type: boolean
+            paged:
+              type: boolean
+          required:
+            - sort
+            - offset
+            - pageSize
+            - pageNumber
+            - unpaged
+            - paged
+        last:
+          type: boolean
+        totalPages:
+          type: integer
+        totalElements:
+          type: integer
+        size:
+          type: integer
+        number:
+          type: integer
+        sort:
+          type: object
+          properties:
+            empty:
+              type: boolean
+            sorted:
+              type: boolean
+            unsorted:
+              type: boolean
+        numberOfElements:
+          type: integer
+        first:
+          type: boolean
+        empty:
+          type: boolean
+      required:
+        - content
+        - pageable
+        - last
+        - totalPages
+        - totalElements
+        - size
+        - number
+        - sort
+        - numberOfElements
+        - first
+        - empty
+    BadRequest:
+      type: object
+      properties:
+        timestamp:
+          type: string
+          format: date-time
+        status:
+          type: integer
+        error:
+          type: string
+        message:
+          type: string
+          description: Explicação de qual foi o dado enviado que falhou na validação.
+        path:
+          type: string
+      required:
+        - timestamp
+        - status
+        - error
+        - message
+        - path
