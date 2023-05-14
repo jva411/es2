@@ -5,7 +5,7 @@ info:
     Essa é a documentação da nossa API de pagamentos, um dos micro serviços que vamos criar hoje.
 
     links:
-    - [Repositório do projeto final](https://github.com/swagger-api/swagger-petstore)
+    - [Repositório do projeto final](https://github.com/jva411/es2)
     - [Guia de implementação](https://docs.google.com/document/d/1cnRGuFmQUW_fVhFNEcyVHDvADyJLFxPacC_sBXlRncc)
   version: 1.0.0
 

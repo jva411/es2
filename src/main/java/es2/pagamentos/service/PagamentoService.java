@@ -1,4 +1,4 @@
-package es2.teste.pagamentos.service;
+package es2.pagamentos.service;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,10 +6,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import es2.teste.pagamentos.dto.PagamentoDto;
-import es2.teste.pagamentos.model.Pagamento;
-import es2.teste.pagamentos.model.Pagamento.Status;
-import es2.teste.pagamentos.repository.PagamentoRepository;
+import es2.pagamentos.dto.PagamentoDto;
+import es2.pagamentos.model.Pagamento;
+import es2.pagamentos.model.Pagamento.Status;
+import es2.pagamentos.repository.PagamentoRepository;
 import jakarta.persistence.EntityNotFoundException;
 
 @Service

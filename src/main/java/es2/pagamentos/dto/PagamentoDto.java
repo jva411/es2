@@ -1,8 +1,8 @@
-package es2.teste.pagamentos.dto;
+package es2.pagamentos.dto;
 
 import java.math.BigDecimal;
 
-import es2.teste.pagamentos.model.Pagamento.Status;
+import es2.pagamentos.model.Pagamento.Status;
 import lombok.Getter;
 import lombok.Setter;
 

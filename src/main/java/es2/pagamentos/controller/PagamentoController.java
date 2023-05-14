@@ -1,4 +1,4 @@
-package es2.teste.pagamentos.controller;
+package es2.pagamentos.controller;
 
 import java.net.URI;
 
@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import es2.teste.pagamentos.dto.PagamentoDto;
-import es2.teste.pagamentos.service.PagamentoService;
+import es2.pagamentos.dto.PagamentoDto;
+import es2.pagamentos.service.PagamentoService;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;

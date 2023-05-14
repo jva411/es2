@@ -1,4 +1,4 @@
-package es2.teste.pagamentos.model;
+package es2.pagamentos.model;
 
 import java.math.BigDecimal;
 

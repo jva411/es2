@@ -8,7 +8,7 @@
 		<version>3.0.6</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>es2.teste</groupId>
+	<groupId>es2</groupId>
 	<artifactId>pagamentos</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>pagamentos</name>

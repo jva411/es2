@@ -1,4 +1,4 @@
-package es2.teste.pagamentos.config;
+package es2.pagamentos.config;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
