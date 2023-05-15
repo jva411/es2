@@ -1,4 +1,4 @@
-package es2.pagamentos.controller;
+package br.ufc.es2.pagamentos.controller;
 
 import java.net.URI;
 
@@ -22,8 +22,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import es2.pagamentos.dto.PagamentoDto;
-import es2.pagamentos.service.PagamentoService;
+import br.ufc.es2.pagamentos.dto.PagamentoDto;
+import br.ufc.es2.pagamentos.service.PagamentoService;
 
 @RestController
 @RequestMapping("/pagamentos")

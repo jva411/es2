@@ -1,4 +1,4 @@
-package es2.pagamentos.service;
+package br.ufc.es2.pagamentos.service;
 
 import javax.persistence.EntityNotFoundException;
 
@@ -8,10 +8,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import es2.pagamentos.dto.PagamentoDto;
-import es2.pagamentos.model.Pagamento;
-import es2.pagamentos.model.Pagamento.Status;
-import es2.pagamentos.repository.PagamentoRepository;
+import br.ufc.es2.pagamentos.dto.PagamentoDto;
+import br.ufc.es2.pagamentos.model.Pagamento;
+import br.ufc.es2.pagamentos.model.Pagamento.Status;
+import br.ufc.es2.pagamentos.repository.PagamentoRepository;
 
 @Service
 public class PagamentoService {

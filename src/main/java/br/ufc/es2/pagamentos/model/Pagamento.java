@@ -1,4 +1,4 @@
-package es2.pagamentos.model;
+package br.ufc.es2.pagamentos.model;
 
 import java.math.BigDecimal;
 
