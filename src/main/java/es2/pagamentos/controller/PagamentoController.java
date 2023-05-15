@@ -2,6 +2,10 @@ package es2.pagamentos.controller;
 
 import java.net.URI;
 
+import javax.persistence.EntityNotFoundException;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -20,9 +24,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import es2.pagamentos.dto.PagamentoDto;
 import es2.pagamentos.service.PagamentoService;
-import jakarta.persistence.EntityNotFoundException;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
 
 @RestController
 @RequestMapping("/pagamentos")

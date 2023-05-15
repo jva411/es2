@@ -1,5 +1,7 @@
 package es2.pagamentos.service;
 
+import javax.persistence.EntityNotFoundException;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -10,7 +12,6 @@ import es2.pagamentos.dto.PagamentoDto;
 import es2.pagamentos.model.Pagamento;
 import es2.pagamentos.model.Pagamento.Status;
 import es2.pagamentos.repository.PagamentoRepository;
-import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class PagamentoService {
