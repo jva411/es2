@@ -18,8 +18,7 @@ public class PagamentoService {
     @Autowired
     private PagamentoRepository repository;
 
-    @Autowired
-    private ModelMapper modelMapper;
+    private ModelMapper modelMapper = new ModelMapper();
 
     public Page<PagamentoDto> listar(Pageable pageable) {
         return repository
@@ -51,6 +50,7 @@ public class PagamentoService {
     }
 
     public void excluirPagamento(Long id) {
+        buscar(id);
         repository.deleteById(id);
     }
 }
