@@ -74,6 +74,11 @@
 		    <artifactId>spring-cloud-starter-openfeign</artifactId>
 		    <version>4.0.2</version>
 		</dependency>
+        <dependency>
+        	<groupId>br.ufc.es2</groupId>
+        	<artifactId>pagamentos</artifactId>
+        	<version>0.0.1-SNAPSHOT</version>
+        </dependency>
 	</dependencies>
 
 	<build>
