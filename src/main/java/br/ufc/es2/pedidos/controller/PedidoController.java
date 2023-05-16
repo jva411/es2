@@ -1,6 +1,7 @@
 package br.ufc.es2.pedidos.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -24,6 +25,11 @@ public class PedidoController {
         @GetMapping()
         public List<PedidoDto> listarTodos() {
             return service.obterTodos();
+        }
+        
+        @GetMapping("/porta")
+        public String retornaPorta(@Value("${local.server.port}") String porta){
+            return String.format(porta);
         }
 
         @GetMapping("/{id}")
