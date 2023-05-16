@@ -1,5 +1,7 @@
 package br.ufc.es2.pagamentos.service;
 
+import java.util.Optional;
+
 import javax.persistence.EntityNotFoundException;
 
 import org.modelmapper.ModelMapper;
@@ -9,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import br.ufc.es2.pagamentos.dto.PagamentoDto;
+import br.ufc.es2.pagamentos.http.PedidoClient;
 import br.ufc.es2.pagamentos.model.Pagamento;
 import br.ufc.es2.pagamentos.model.Pagamento.Status;
 import br.ufc.es2.pagamentos.repository.PagamentoRepository;
@@ -19,7 +22,7 @@ public class PagamentoService {
     @Autowired
     private PagamentoRepository repository;
 
-    private ModelMapper modelMapper = new ModelMapper();
+    private ModelMapper modelMapper = new ModelMapper();   
 
     public Page<PagamentoDto> listar(Pageable pageable) {
         return repository
